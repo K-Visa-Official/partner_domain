@@ -3,12 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Redirecting...</title>
-  <script>
-    window.location.href = "https://main.d1ixxx006maf83.amplifyapp.com/Member?&member=117&language=0";
-  </script>
+  <title>Load Member Page in iframe</title>
+  <style>
+    body {
+      margin: 0;
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecting to Member page...</p>
+  <iframe src="https://main.d1ixxx006maf83.amplifyapp.com/Member?&member=117&language=0" allowfullscreen></iframe>
 </body>
 </html>
