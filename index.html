@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta property="og:image" content="./meta_image.png" />
   <meta property="og:title" content="케이비자 컨설팅 - 외국인을 위한 비자/행정 컨설팅 서비스" />
   <meta property="og:description" content="케이비자 컨설팅 - 외국인을 위한 비자/행정 컨설팅 서비스" />
   <link rel="icon" type="image/png" href="./k_favicon.png" />
   <title>케이비자 컨설팅 - 외국인을 위한 한국/행정 컨설팅 서비스</title>
+
   <style>
-    html, body {
+    html,
+    body {
       margin: 0;
       padding: 0;
       height: 100%;
-      /* overflow: hidden; ✅ 스크롤 제거 */
     }
+
     iframe {
       width: 100vw;
       height: 100%;
@@ -23,10 +26,29 @@
     }
   </style>
 </head>
+
 <body>
-  <iframe
-    src="https://main.d1ixxx006maf83.amplifyapp.com/Member?&member=117&language=0"
-    allowfullscreen
-  ></iframe>
+  <script>
+    // URL 파라미터 파싱
+    const params = new URLSearchParams(window.location.search);
+    const email = params.get("email");
+    const language = params.get("language") || "0";
+    const member = params.get("member") || "117"; // 기본값 설정
+
+    // 전달할 URL 생성
+    const targetURL = new URL("https://main.d1ixxx006maf83.amplifyapp.com/Member");
+    targetURL.searchParams.set("member", member);
+    targetURL.searchParams.set("language", language);
+    if (email) targetURL.searchParams.set("email", email); // ✅ 이메일도 포함
+
+    // iframe 생성 및 설정
+    const iframe = document.createElement("iframe");
+    iframe.src = targetURL.toString();
+    iframe.allowFullscreen = true;
+
+    // iframe을 body에 추가
+    document.body.appendChild(iframe);
+  </script>
 </body>
+
 </html>
